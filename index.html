@@ -24,6 +24,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .topbar-right{margin-left:auto;display:flex;align-items:center;gap:8px;}
 .updated-lbl{font-size:12px;color:var(--text3);}
 .refresh-btn{background:none;border:none;color:var(--blue);font-size:15px;cursor:pointer;padding:6px 8px;border-radius:var(--r-sm);font-weight:600;font-family:var(--font);}
+@keyframes spin{to{transform:rotate(360deg)}}
 .theme-toggle{display:flex;background:var(--bg4);border-radius:var(--r-sm);padding:2px;gap:1px;}
 .tt-btn{background:none;border:none;color:var(--text2);cursor:pointer;border-radius:6px;width:28px;height:28px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;font-family:var(--font);transition:background .15s,color .15s;}
 .tt-btn.active{background:var(--bg2);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.25);}
@@ -187,12 +188,33 @@ function initTheme(){
 function applyTheme(t){var dark=t==='dark'||(t==='auto'&&window.matchMedia('(prefers-color-scheme:dark)').matches);document.documentElement.setAttribute('data-theme',dark?'dark':'light');}
 function timeAgo(iso){if(!iso)return'—';var d=Math.floor((Date.now()-new Date(iso))/1000);if(d<60)return d+'s siden';if(d<3600)return Math.floor(d/60)+'m siden';if(d<86400)return Math.floor(d/3600)+'t siden';return Math.floor(d/86400)+'d siden';}
 function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function showToast(msg,dur){
+  var el=document.getElementById('mc-toast');
+  if(!el){el=document.createElement('div');el.id='mc-toast';
+    el.style.cssText='position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(28,28,30,.95);color:#fff;padding:9px 18px;border-radius:100px;font-size:13px;font-weight:500;z-index:9999;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;white-space:nowrap;backdrop-filter:blur(12px);';
+    document.body.appendChild(el);}
+  el.textContent=msg;el.style.opacity='1';el.style.transform='translateX(-50%) translateY(0)';
+  clearTimeout(el._t);el._t=setTimeout(function(){el.style.opacity='0';el.style.transform='translateX(-50%) translateY(20px)';},dur||2500);
+}
+var _lastUpdated='';
 async function loadData(){
+  var btn=document.querySelector('.refresh-btn');
+  if(btn)btn.style.animation='spin .6s linear infinite';
   try{
     var r=await fetch('data/dashboard-data.json?t='+Date.now());
-    var d=await r.json();render(d);
+    var d=await r.json();
+    var isNew=d.lastUpdated&&d.lastUpdated!==_lastUpdated;
+    render(d);
     document.getElementById('updated-lbl').textContent=timeAgo(d.lastUpdated);
-  }catch(e){document.getElementById('updated-lbl').textContent='Fejl ved hentning';}
+    if(btn)btn.style.animation='';
+    if(isNew&&_lastUpdated)showToast('✓ '+timeAgo(d.lastUpdated)+' — ny data');
+    else if(_lastUpdated)showToast('✓ Opdateret — ingen ændringer',2000);
+    _lastUpdated=d.lastUpdated||'';
+  }catch(e){
+    if(btn)btn.style.animation='';
+    document.getElementById('updated-lbl').textContent='Fejl';
+    showToast('⚠️ Kunne ikke hente data',3000);
+  }
 }
 function render(d){
   var pct=d.contextPct||0;
