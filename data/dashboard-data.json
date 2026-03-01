@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-01T16:30:01Z",
+  "lastUpdated": "2026-03-01T16:40:01Z",
   "contextPct": 52,
   "model": "claude-sonnet-4-6",
   "actionRequired": [
@@ -65,13 +65,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-01T16:30:01Z",
+      "lastRun": "2026-03-01T16:40:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-01T16:30:01Z",
+      "lastRun": "2026-03-01T16:40:01Z",
       "status": "ok"
     },
     {
@@ -83,7 +83,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-01T16:30:01Z",
+      "lastRun": "2026-03-01T16:40:01Z",
       "status": "ok"
     }
   ],
@@ -94,35 +94,35 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "Mission Control git: `/tmp/mission-control/` — husk `git push` efter ændringer"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t001: pending — Finance DK performance chart"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t002: DONE — Mission Control auto-push"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t003: pending — CS2 runde-historik"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t004: pending — Finance DK RSU skat-optimering"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t005: pending — Status Page response-time graph"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t006: pending — Wolf Dashboard P&L integration"
     },
     {
-      "time": "2026-03-01T16:30:01Z",
+      "time": "2026-03-01T16:40:01Z",
       "event": "t007: pending — Shared CSS design tokens"
     }
   ]
