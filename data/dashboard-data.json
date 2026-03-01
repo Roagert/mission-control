@@ -1,22 +1,92 @@
 {
-  "lastUpdated": "2026-03-01T10:00:00Z",
+  "lastUpdated": "2026-03-01T11:12:13Z",
   "actionRequired": [],
   "activeNow": [],
   "products": [
-    {"name": "Finance DK (prod)", "url": "http://100.89.115.83:8181", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"},
-    {"name": "Status Page", "url": "http://100.89.115.83:8182", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"},
-    {"name": "Finance DK (dev)", "url": "http://100.89.115.83:8282", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"},
-    {"name": "Yahoo Tax", "url": "http://100.89.115.83:8383", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"},
-    {"name": "Wolf Dashboard", "url": "http://100.89.115.83:8484", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"},
-    {"name": "CS2 Dashboard", "url": "http://100.89.115.83:8787", "status": "live", "lastChecked": "2026-03-01T10:00:00Z"}
+    {
+      "name": "Finance DK",
+      "url": "http://100.89.115.83:8181",
+      "status": "live"
+    },
+    {
+      "name": "Finance DK Dev",
+      "url": "http://100.89.115.83:8282",
+      "status": "live"
+    },
+    {
+      "name": "Status Page",
+      "url": "http://100.89.115.83:8182",
+      "status": "live"
+    },
+    {
+      "name": "Yahoo Tax",
+      "url": "http://100.89.115.83:8383",
+      "status": "live"
+    },
+    {
+      "name": "Wolf Dashboard",
+      "url": "http://100.89.115.83:8484",
+      "status": "live"
+    },
+    {
+      "name": "YOLO Trader",
+      "url": "http://100.89.115.83:8585",
+      "status": "live"
+    },
+    {
+      "name": "HA Review",
+      "url": "http://100.89.115.83:8686",
+      "status": "live"
+    },
+    {
+      "name": "CS2 Dashboard",
+      "url": "http://100.89.115.83:8787",
+      "status": "live"
+    }
   ],
   "crons": [
-    {"name": "Watchdog (hvert 10m)", "schedule": "*/10 * * * *", "lastRun": null, "status": "ok", "errors": 0, "lastError": null},
-    {"name": "Heartbeat", "schedule": "*/30 * * * *", "lastRun": null, "status": "ok", "errors": 0, "lastError": null}
+    {
+      "name": "Watchdog",
+      "schedule": "*/10 * * * *",
+      "lastRun": "2026-03-01T11:12:13Z",
+      "status": "ok",
+      "errors": 0
+    },
+    {
+      "name": "Heartbeat",
+      "schedule": "*/30 * * * *",
+      "lastRun": "2026-03-01T11:12:13Z",
+      "status": "ok",
+      "errors": 0
+    },
+    {
+      "name": "Stock Research",
+      "schedule": "0 3 * * *",
+      "lastRun": null,
+      "status": "ok",
+      "errors": 0
+    }
   ],
   "recentActivity": [
-    {"time": "2026-03-01T09:43:00Z", "event": "✅ CS2 Dashboard scoreboard + trophies bygget"},
-    {"time": "2026-03-01T09:30:00Z", "event": "🔇 Telegram cron jobs fjernet"},
-    {"time": "2026-02-28T23:00:00Z", "event": "📊 Stock research agent sat op"}
+    {
+      "time": "2026-03-01T11:12:13Z",
+      "event": "✅ Apple HIG redesign af alle 4 sites"
+    },
+    {
+      "time": "2026-03-01T10:00:00Z",
+      "event": "🎮 CS2 Dashboard: SF Pro labels, 52px topbar, system green LIVE"
+    },
+    {
+      "time": "2026-03-01T09:50:00Z",
+      "event": "💰 Finance DK: SVG sidebar ikoner, blåt app-ikon"
+    },
+    {
+      "time": "2026-03-01T09:40:00Z",
+      "event": "📊 Status Page: SVG tab-ikoner, grå inactive tabs"
+    },
+    {
+      "time": "2026-03-01T09:30:00Z",
+      "event": "🐾 Mission Control live på GitHub Pages"
+    }
   ]
 }
