@@ -3,131 +3,161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a0a12">
+<meta name="theme-color" content="#000000">
 <title>🐾 Mission Control</title>
 <style>
-:root{--bg:#0a0a12;--bg2:#10101e;--bg3:#16162a;--bdr:rgba(0,212,255,.1);
-  --cyan:#00d4ff;--lime:#39ff14;--red:#ff2d55;--orange:#ff9500;
-  --gold:#ffd60a;--purple:#bf5af2;--text:#e8eaf6;--sub:#55607a;}
-*{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;}
+:root{
+  --bg:#000;--bg2:#1c1c1e;--bg3:#2c2c2e;--bg4:#3a3a3c;--bg5:#48484a;
+  --text:#fff;--text2:rgba(255,255,255,.6);--text3:rgba(255,255,255,.3);--sep:rgba(255,255,255,.1);
+  --blue:#007AFF;--green:#34C759;--red:#FF3B30;--orange:#FF9500;
+  --yellow:#FFCC00;--purple:#AF52DE;--cyan:#32ADE6;--teal:#30D158;
+  --font:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue',Arial,sans-serif;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:20px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;
+  -webkit-font-smoothing:antialiased}
 
+/* PIN SCREEN */
 #pin-screen{position:fixed;inset:0;background:var(--bg);z-index:999;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;}
-#pin-screen h2{font-size:18px;color:var(--cyan);letter-spacing:2px;font-family:monospace;}
-#pin-input{background:rgba(255,255,255,.06);border:1px solid var(--bdr);border-radius:10px;
-  color:#fff;font-size:20px;padding:12px 20px;outline:none;text-align:center;letter-spacing:4px;width:200px;}
-#pin-input:focus{border-color:rgba(0,212,255,.4);}
-#pin-error{color:var(--red);font-size:12px;display:none;}
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+#pin-screen .pin-icon{font-size:56px;margin-bottom:8px}
+#pin-screen h2{font-size:22px;font-weight:700;color:var(--text)}
+#pin-screen p{font-size:14px;color:var(--text2)}
+#pin-input{background:var(--bg2);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);
+  color:var(--text);font-size:22px;padding:14px 20px;outline:none;text-align:center;
+  letter-spacing:8px;width:220px;font-family:var(--font)}
+#pin-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,122,255,.15)}
+#pin-error{color:var(--red);font-size:13px;display:none;font-weight:500}
 
-.topbar{background:rgba(10,10,18,.97);border-bottom:1px solid var(--bdr);
-  padding:12px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100;}
-.logo{font-family:monospace;font-size:16px;font-weight:700;color:var(--cyan);letter-spacing:2px;}
-.updated{font-size:11px;color:var(--sub);margin-left:auto;}
-.refresh-btn{background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.2);color:var(--cyan);
-  border-radius:7px;padding:4px 12px;cursor:pointer;font-size:11px;font-weight:700;}
-.refresh-btn:hover{background:rgba(0,212,255,.2);}
+/* TOPBAR */
+.topbar{background:rgba(0,0,0,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:.5px solid var(--sep);padding:14px 20px;
+  display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:100}
+.logo{font-size:17px;font-weight:700;color:var(--text)}
+.logo span{color:var(--text2);font-weight:400}
+.updated{font-size:12px;color:var(--text2);margin-left:auto}
+.refresh-btn{background:rgba(0,122,255,.15);border:none;color:var(--blue);
+  border-radius:var(--r-sm);padding:7px 14px;cursor:pointer;font-size:13px;font-weight:600;
+  font-family:var(--font)}
+.refresh-btn:active{background:rgba(0,122,255,.25)}
 
-.main{padding:16px;max-width:1000px;margin:0 auto;display:grid;gap:14px;}
-@media(min-width:600px){.main{grid-template-columns:1fr 1fr;}}
-@media(min-width:900px){.main{grid-template-columns:1fr 1fr 1fr;}}
+/* MAIN GRID */
+.main{padding:16px 16px 32px;max-width:1100px;margin:0 auto;display:grid;gap:12px}
+@media(min-width:600px){.main{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.main{grid-template-columns:1fr 1fr 1fr}}
 
-.card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;}
-.card-full{grid-column:1/-1;}
-.ch{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.05);
-  display:flex;align-items:center;justify-content:space-between;}
-.ch-title{font-size:11px;font-weight:700;letter-spacing:2px;color:rgba(0,212,255,.7);text-transform:uppercase;}
-.ch-count{font-size:10px;color:var(--sub);font-weight:700;}
-.cb{padding:12px;}
+/* CARDS */
+.card{background:var(--bg2);border-radius:var(--r-md);overflow:hidden;
+  border:1px solid rgba(255,255,255,.06)}
+.card-full{grid-column:1/-1}
+.card-header{padding:12px 16px;border-bottom:.5px solid var(--sep);
+  display:flex;align-items:center;justify-content:space-between}
+.card-title{font-size:13px;font-weight:600;color:var(--text2);text-transform:uppercase;letter-spacing:.06em}
+.card-count{font-size:12px;font-weight:600;color:var(--text3);
+  background:var(--bg3);border-radius:100px;padding:2px 8px;min-width:24px;text-align:center}
+.card-body{padding:12px}
 
-/* Action items */
-.action-item{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;
-  border-radius:8px;background:rgba(0,0,0,.3);margin-bottom:6px;border-left:3px solid transparent;}
-.action-item.high{border-left-color:var(--red);}
-.action-item.medium{border-left-color:var(--orange);}
-.action-item.low{border-left-color:var(--sub);}
-.action-title{font-size:13px;font-weight:600;flex:1;}
-.action-title a{color:var(--cyan);text-decoration:none;}
-.prio-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:10px;white-space:nowrap;}
-.prio-high{background:rgba(255,45,85,.15);color:var(--red);}
-.prio-medium{background:rgba(255,149,0,.15);color:var(--orange);}
-.prio-low{background:rgba(255,255,255,.06);color:var(--sub);}
+/* ACTION ITEMS */
+.action-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
+  border-radius:var(--r-sm);background:var(--bg3);margin-bottom:6px;
+  border-left:3px solid transparent}
+.action-item:last-child{margin-bottom:0}
+.action-item.high{border-left-color:var(--red)}
+.action-item.medium{border-left-color:var(--orange)}
+.action-item.low{border-left-color:var(--text3)}
+.action-title{font-size:14px;font-weight:600;flex:1}
+.action-title a{color:var(--blue);text-decoration:none}
+.prio-badge{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap}
+.prio-high{background:rgba(255,59,48,.15);color:var(--red)}
+.prio-medium{background:rgba(255,149,0,.15);color:var(--orange)}
+.prio-low{background:rgba(255,255,255,.08);color:var(--text2)}
 
-/* Active now */
-.active-item{display:flex;align-items:center;gap:10px;padding:8px 10px;
-  background:rgba(57,255,20,.05);border:1px solid rgba(57,255,20,.1);border-radius:8px;margin-bottom:6px;}
-.active-dot{width:8px;height:8px;border-radius:50%;background:var(--lime);
-  animation:pulse 1.5s infinite;flex-shrink:0;}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(.8);}}
-.active-task{font-size:13px;font-weight:600;flex:1;}
-.active-meta{font-size:10px;color:var(--sub);}
+/* ACTIVE NOW */
+.active-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
+  background:rgba(52,199,89,.06);border:1px solid rgba(52,199,89,.12);
+  border-radius:var(--r-sm);margin-bottom:6px}
+.active-item:last-child{margin-bottom:0}
+.active-dot{width:8px;height:8px;border-radius:50%;background:var(--green);
+  animation:pulse 1.5s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.active-task{font-size:14px;font-weight:600;flex:1}
+.active-meta{font-size:11px;color:var(--text2);white-space:nowrap}
 
-/* Products */
-.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;}
-.product-item{display:flex;align-items:center;gap:8px;padding:8px 10px;
-  background:rgba(0,0,0,.3);border-radius:8px;border:1px solid rgba(255,255,255,.04);}
-.product-item a{text-decoration:none;color:var(--text);font-size:12px;font-weight:600;flex:1;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.s-live{background:var(--lime);box-shadow:0 0 6px var(--lime);}
-.s-testing{background:var(--orange);}
-.s-down{background:var(--red);animation:pulse .8s infinite;}
+/* PRODUCTS */
+.products-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.product-item{display:flex;align-items:center;gap:8px;padding:10px 12px;
+  background:var(--bg3);border-radius:var(--r-sm);border:1px solid rgba(255,255,255,.04)}
+.product-item a{text-decoration:none;color:var(--text);font-size:13px;font-weight:600;flex:1;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.status-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.s-live{background:var(--green)}
+.s-testing{background:var(--orange)}
+.s-down{background:var(--red);animation:pulse .8s infinite}
 
-/* Crons */
-.cron-row{display:flex;align-items:center;gap:8px;padding:7px 10px;
-  border-bottom:1px solid rgba(255,255,255,.03);}
-.cron-row:last-child{border-bottom:none;}
-.cron-name{font-size:12px;font-weight:600;flex:1;}
-.cron-sched{font-size:10px;color:var(--sub);font-family:monospace;}
-.cron-status{font-size:9px;font-weight:700;padding:2px 7px;border-radius:10px;}
-.cs-ok{background:rgba(57,255,20,.1);color:var(--lime);}
-.cs-error{background:rgba(255,45,85,.1);color:var(--red);}
-.cs-paused{background:rgba(255,255,255,.06);color:var(--sub);}
-.cron-last{font-size:10px;color:var(--sub);white-space:nowrap;}
+/* CRONS */
+.cron-row{display:flex;align-items:center;gap:8px;padding:10px 16px;
+  border-bottom:.5px solid var(--sep)}
+.cron-row:last-child{border-bottom:none}
+.cron-name{font-size:13px;font-weight:600;flex:1}
+.cron-sched{font-size:11px;color:var(--text2);font-family:monospace}
+.cron-status{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;white-space:nowrap}
+.cs-ok{background:rgba(52,199,89,.15);color:var(--green)}
+.cs-error{background:rgba(255,59,48,.15);color:var(--red)}
+.cs-paused{background:rgba(255,255,255,.08);color:var(--text2)}
+.cron-last{font-size:11px;color:var(--text3);white-space:nowrap}
 
-/* Activity */
-.activity-item{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.03);}
-.activity-item:last-child{border-bottom:none;}
-.activity-time{font-size:10px;color:var(--sub);white-space:nowrap;padding-top:1px;min-width:50px;}
-.activity-event{font-size:12px;flex:1;}
+/* ACTIVITY */
+.activity-item{display:flex;gap:12px;padding:8px 0;border-bottom:.5px solid var(--sep)}
+.activity-item:last-child{border-bottom:none}
+.activity-time{font-size:11px;color:var(--text3);white-space:nowrap;padding-top:1px;min-width:55px}
+.activity-event{font-size:13px;color:var(--text);line-height:1.4}
 
-.empty{color:var(--sub);font-size:12px;text-align:center;padding:16px;opacity:.6;}
+.empty{color:var(--text3);font-size:13px;text-align:center;padding:20px}
 </style>
 </head>
 <body>
 
 <div id="pin-screen">
-  <div class="logo">🐾 MISSION CONTROL</div>
-  <input id="pin-input" type="password" placeholder="PIN" maxlength="8" autofocus />
-  <div id="pin-error">Forkert PIN</div>
+  <div class="pin-icon">🐾</div>
+  <h2>Mission Control</h2>
+  <p>Indtast PIN for at fortsætte</p>
+  <input id="pin-input" type="password" placeholder="• • • •" maxlength="8" autofocus />
+  <div id="pin-error">Forkert PIN — prøv igen</div>
 </div>
 
 <div id="app" style="display:none">
   <div class="topbar">
     <div class="logo">🐾 Mission Control</div>
-    <div class="updated" id="updated-lbl">Opdaterer...</div>
-    <button class="refresh-btn" onclick="loadData()">🔄 Opdater</button>
+    <div class="updated" id="updated-lbl">Opdaterer…</div>
+    <button class="refresh-btn" onclick="loadData()">↻ Opdater</button>
   </div>
   <div class="main">
     <div class="card card-full" id="action-card">
-      <div class="ch"><div class="ch-title">🚨 Action Required</div><div class="ch-count" id="action-count">0</div></div>
-      <div class="cb" id="action-body"><div class="empty">Ingen opgaver afventer</div></div>
+      <div class="card-header">
+        <div class="card-title">🚨 Action Required</div>
+        <div class="card-count" id="action-count">0</div>
+      </div>
+      <div class="card-body" id="action-body"><div class="empty">Ingen opgaver afventer</div></div>
     </div>
     <div class="card" id="active-card">
-      <div class="ch"><div class="ch-title">⚡ Aktiv nu</div><div class="ch-count" id="active-count">0</div></div>
-      <div class="cb" id="active-body"><div class="empty">Ingen aktive opgaver</div></div>
+      <div class="card-header">
+        <div class="card-title">⚡ Aktiv nu</div>
+        <div class="card-count" id="active-count">0</div>
+      </div>
+      <div class="card-body" id="active-body"><div class="empty">Ingen aktive opgaver</div></div>
     </div>
     <div class="card">
-      <div class="ch"><div class="ch-title">⏰ Cron Jobs</div></div>
+      <div class="card-header"><div class="card-title">⏰ Cron Jobs</div></div>
       <div id="cron-body"></div>
     </div>
     <div class="card card-full">
-      <div class="ch"><div class="ch-title">📊 Services</div></div>
-      <div class="cb"><div class="products-grid" id="products-body"></div></div>
+      <div class="card-header"><div class="card-title">📡 Services</div></div>
+      <div class="card-body"><div class="products-grid" id="products-body"></div></div>
     </div>
     <div class="card card-full">
-      <div class="ch"><div class="ch-title">📋 Seneste aktivitet</div></div>
-      <div class="cb" id="activity-body"></div>
+      <div class="card-header"><div class="card-title">📋 Seneste aktivitet</div></div>
+      <div class="card-body" id="activity-body"></div>
     </div>
   </div>
 </div>
@@ -136,15 +166,13 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 const PIN = '2810';
 const DATA_URL = 'data/dashboard-data.json';
 
-// PIN check
 document.getElementById('pin-input').addEventListener('keydown', e => {
   if(e.key==='Enter'){
-    const val = e.target.value;
-    if(val===PIN){
+    if(e.target.value===PIN){
       document.getElementById('pin-screen').style.display='none';
       document.getElementById('app').style.display='block';
       localStorage.setItem('mc-auth','1');
-      loadData();setInterval(loadData,30000);
+      loadData(); setInterval(loadData,30000);
     } else {
       document.getElementById('pin-error').style.display='block';
       e.target.value='';
@@ -155,7 +183,7 @@ document.getElementById('pin-input').addEventListener('keydown', e => {
 if(localStorage.getItem('mc-auth')==='1'){
   document.getElementById('pin-screen').style.display='none';
   document.getElementById('app').style.display='block';
-  loadData();setInterval(loadData,30000);
+  loadData(); setInterval(loadData,30000);
 }
 
 function timeAgo(iso){
@@ -179,7 +207,6 @@ async function loadData(){
 }
 
 function render(d){
-  // Action required
   const actions=d.actionRequired||[];
   document.getElementById('action-count').textContent=actions.length;
   document.getElementById('action-body').innerHTML=actions.length?actions.map(a=>`
@@ -188,7 +215,6 @@ function render(d){
       <span class="prio-badge prio-${a.priority||'low'}">${(a.priority||'low').toUpperCase()}</span>
     </div>`).join(''):'<div class="empty">Ingen opgaver afventer</div>';
 
-  // Active now
   const active=d.activeNow||[];
   document.getElementById('active-count').textContent=active.length;
   document.getElementById('active-body').innerHTML=active.length?active.map(a=>`
@@ -198,14 +224,12 @@ function render(d){
       <div class="active-meta">${a.model||''} · ${timeAgo(a.startedAt)}</div>
     </div>`).join(''):'<div class="empty">Ingen aktive opgaver</div>';
 
-  // Products
   document.getElementById('products-body').innerHTML=(d.products||[]).map(p=>`
     <div class="product-item">
       <div class="status-dot s-${p.status||'live'}"></div>
       <a href="${p.url}" target="_blank">${p.name}</a>
     </div>`).join('');
 
-  // Crons
   document.getElementById('cron-body').innerHTML=(d.crons||[]).map(c=>`
     <div class="cron-row">
       <div class="cron-name">${c.name}</div>
@@ -214,14 +238,12 @@ function render(d){
       <div class="cron-last">${timeAgo(c.lastRun)}</div>
     </div>`).join('');
 
-  // Activity
-  document.getElementById('activity-body').innerHTML=(d.recentActivity||[]).length?
-    (d.recentActivity||[]).map(a=>`
-      <div class="activity-item">
-        <div class="activity-time">${timeAgo(a.time)}</div>
-        <div class="activity-event">${a.event}</div>
-      </div>`).join(''):
-    '<div class="empty">Ingen aktivitet</div>';
+  const acts=d.recentActivity||[];
+  document.getElementById('activity-body').innerHTML=acts.length?acts.map(a=>`
+    <div class="activity-item">
+      <div class="activity-time">${timeAgo(a.time)}</div>
+      <div class="activity-event">${a.event}</div>
+    </div>`).join(''):'<div class="empty">Ingen aktivitet</div>';
 }
 </script>
 </body>
