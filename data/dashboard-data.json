@@ -1,6 +1,30 @@
 {
-  "lastUpdated": "2026-03-01T11:12:13Z",
-  "actionRequired": [],
+  "lastUpdated": "2026-03-01T12:49:07Z",
+  "contextPct": 62,
+  "model": "claude-sonnet-4-6",
+  "actionRequired": [
+    {
+      "title": "Finance DK: Tilføj portefølje performance chart (7d/30d/1y)",
+      "priority": "high",
+      "taskId": "t001",
+      "area": "finance-dk",
+      "url": null
+    },
+    {
+      "title": "Mission Control: Auto-push ved heartbeat (real-time server status)",
+      "priority": "high",
+      "taskId": "t002",
+      "area": "mission-control",
+      "url": null
+    },
+    {
+      "title": "Finance DK: RSU skat-optimering — vis hvornår det bedst betaler sig at sælge",
+      "priority": "high",
+      "taskId": "t004",
+      "area": "finance-dk",
+      "url": null
+    }
+  ],
   "activeNow": [],
   "products": [
     {
@@ -9,13 +33,13 @@
       "status": "live"
     },
     {
-      "name": "Finance DK Dev",
-      "url": "http://100.89.115.83:8282",
+      "name": "Status Page",
+      "url": "http://100.89.115.83:8182",
       "status": "live"
     },
     {
-      "name": "Status Page",
-      "url": "http://100.89.115.83:8182",
+      "name": "Finance Dev",
+      "url": "http://100.89.115.83:8282",
       "status": "live"
     },
     {
@@ -48,45 +72,37 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-01T11:12:13Z",
-      "status": "ok",
-      "errors": 0
+      "lastRun": "2026-03-01T12:49:07Z",
+      "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-01T11:12:13Z",
-      "status": "ok",
-      "errors": 0
+      "lastRun": "2026-03-01T12:49:07Z",
+      "status": "ok"
     },
     {
       "name": "Stock Research",
       "schedule": "0 3 * * *",
       "lastRun": null,
-      "status": "ok",
-      "errors": 0
+      "status": "ok"
+    },
+    {
+      "name": "Mission Control push",
+      "schedule": "*/10 * * * *",
+      "lastRun": "2026-03-01T12:49:07Z",
+      "status": "ok"
     }
   ],
+  "taskQueue": {
+    "pending": 7,
+    "active": 0,
+    "done": 0
+  },
   "recentActivity": [
     {
-      "time": "2026-03-01T11:12:13Z",
-      "event": "✅ Apple HIG redesign af alle 4 sites"
-    },
-    {
-      "time": "2026-03-01T10:00:00Z",
-      "event": "🎮 CS2 Dashboard: SF Pro labels, 52px topbar, system green LIVE"
-    },
-    {
-      "time": "2026-03-01T09:50:00Z",
-      "event": "💰 Finance DK: SVG sidebar ikoner, blåt app-ikon"
-    },
-    {
-      "time": "2026-03-01T09:40:00Z",
-      "event": "📊 Status Page: SVG tab-ikoner, grå inactive tabs"
-    },
-    {
-      "time": "2026-03-01T09:30:00Z",
-      "event": "🐾 Mission Control live på GitHub Pages"
+      "time": "2026-03-01T12:49:07Z",
+      "event": "✅ System kører normalt"
     }
   ]
 }
