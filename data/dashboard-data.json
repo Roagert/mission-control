@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-01T12:50:01Z",
+  "lastUpdated": "2026-03-01T12:52:25Z",
   "contextPct": 62,
   "model": "claude-sonnet-4-6",
   "actionRequired": [
@@ -8,13 +8,6 @@
       "priority": "high",
       "taskId": "t001",
       "area": "finance-dk",
-      "url": null
-    },
-    {
-      "title": "Mission Control: Auto-push ved heartbeat (real-time server status)",
-      "priority": "high",
-      "taskId": "t002",
-      "area": "mission-control",
       "url": null
     },
     {
@@ -72,13 +65,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-01T12:50:01Z",
+      "lastRun": "2026-03-01T12:52:25Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-01T12:50:01Z",
+      "lastRun": "2026-03-01T12:52:25Z",
       "status": "ok"
     },
     {
@@ -90,18 +83,18 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-01T12:50:01Z",
+      "lastRun": "2026-03-01T12:52:25Z",
       "status": "ok"
     }
   ],
   "taskQueue": {
-    "pending": 7,
+    "pending": 6,
     "active": 0,
-    "done": 0
+    "done": 1
   },
   "recentActivity": [
     {
-      "time": "2026-03-01T12:50:01Z",
+      "time": "2026-03-01T12:52:25Z",
       "event": "✅ System kører normalt"
     }
   ]
