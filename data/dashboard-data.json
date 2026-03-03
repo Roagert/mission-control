@@ -1,24 +1,24 @@
 {
-  "lastUpdated": "2026-03-03T22:30:01Z",
+  "lastUpdated": "2026-03-03T22:36:40Z",
   "contextPct": 24,
   "model": "claude-sonnet-4-6",
-  "actionRequired": [
+  "actionRequired": [],
+  "activeNow": [
     {
-      "title": "Finance DK: Tilføj portefølje performance chart (7d/30d/1y)",
-      "priority": "high",
+      "task": "Finance DK: Tilføj portefølje performance chart (7d/30d/1y)",
       "taskId": "t001",
       "area": "finance-dk",
-      "url": null
+      "startedAt": "2026-03-03T22:35:00Z",
+      "agent": "subagent"
     },
     {
-      "title": "Finance DK: RSU skat-optimering — vis hvornår det bedst betaler sig at sælge",
-      "priority": "high",
+      "task": "Finance DK: RSU skat-optimering — vis hvornår det bedst betaler sig at sælge",
       "taskId": "t004",
       "area": "finance-dk",
-      "url": null
+      "startedAt": "2026-03-03T22:35:00Z",
+      "agent": "subagent"
     }
   ],
-  "activeNow": [],
   "products": [
     {
       "name": "Finance DK",
@@ -65,13 +65,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T22:30:01Z",
+      "lastRun": "2026-03-03T22:36:40Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-03T22:30:01Z",
+      "lastRun": "2026-03-03T22:36:40Z",
       "status": "ok"
     },
     {
@@ -83,18 +83,18 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T22:30:01Z",
+      "lastRun": "2026-03-03T22:36:40Z",
       "status": "ok"
     }
   ],
   "taskQueue": {
-    "pending": 6,
-    "active": 0,
+    "pending": 4,
+    "active": 2,
     "done": 1
   },
   "recentActivity": [
     {
-      "time": "2026-03-03T22:30:01Z",
+      "time": "2026-03-03T22:36:40Z",
       "event": "✅ System kører normalt"
     }
   ]
