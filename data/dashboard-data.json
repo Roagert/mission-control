@@ -1,16 +1,9 @@
 {
-  "lastUpdated": "2026-03-03T22:36:40Z",
+  "lastUpdated": "2026-03-03T22:40:01Z",
   "contextPct": 24,
   "model": "claude-sonnet-4-6",
   "actionRequired": [],
   "activeNow": [
-    {
-      "task": "Finance DK: Tilføj portefølje performance chart (7d/30d/1y)",
-      "taskId": "t001",
-      "area": "finance-dk",
-      "startedAt": "2026-03-03T22:35:00Z",
-      "agent": "subagent"
-    },
     {
       "task": "Finance DK: RSU skat-optimering — vis hvornår det bedst betaler sig at sælge",
       "taskId": "t004",
@@ -65,13 +58,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T22:36:40Z",
+      "lastRun": "2026-03-03T22:40:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-03T22:36:40Z",
+      "lastRun": "2026-03-03T22:40:01Z",
       "status": "ok"
     },
     {
@@ -83,18 +76,18 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T22:36:40Z",
+      "lastRun": "2026-03-03T22:40:01Z",
       "status": "ok"
     }
   ],
   "taskQueue": {
     "pending": 4,
-    "active": 2,
-    "done": 1
+    "active": 1,
+    "done": 2
   },
   "recentActivity": [
     {
-      "time": "2026-03-03T22:36:40Z",
+      "time": "2026-03-03T22:40:01Z",
       "event": "✅ System kører normalt"
     }
   ]
