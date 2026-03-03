@@ -1,16 +1,9 @@
 {
-  "lastUpdated": "2026-03-03T23:36:50Z",
+  "lastUpdated": "2026-03-03T23:40:01Z",
   "contextPct": 17,
   "model": "claude-sonnet-4-6",
   "actionRequired": [],
   "activeNow": [
-    {
-      "task": "CS2 Dashboard: Tilføj runde-historik (CT/T wins over tid)",
-      "taskId": "t003",
-      "area": "cs2",
-      "startedAt": "2026-03-03T23:35:00Z",
-      "agent": "subagent"
-    },
     {
       "task": "Status Page: Tilføj response-time graph per server (last 24h)",
       "taskId": "t005",
@@ -65,13 +58,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T23:36:50Z",
+      "lastRun": "2026-03-03T23:40:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-03T23:36:50Z",
+      "lastRun": "2026-03-03T23:40:01Z",
       "status": "ok"
     },
     {
@@ -83,18 +76,18 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T23:36:50Z",
+      "lastRun": "2026-03-03T23:40:01Z",
       "status": "ok"
     }
   ],
   "taskQueue": {
     "pending": 2,
-    "active": 2,
-    "done": 3
+    "active": 1,
+    "done": 4
   },
   "recentActivity": [
     {
-      "time": "2026-03-03T23:36:50Z",
+      "time": "2026-03-03T23:40:01Z",
       "event": "✅ System kører normalt"
     }
   ]
