@@ -1,14 +1,21 @@
 {
-  "lastUpdated": "2026-03-03T23:30:01Z",
-  "contextPct": 24,
+  "lastUpdated": "2026-03-03T23:36:50Z",
+  "contextPct": 17,
   "model": "claude-sonnet-4-6",
   "actionRequired": [],
   "activeNow": [
     {
-      "task": "Finance DK: RSU skat-optimering — vis hvornår det bedst betaler sig at sælge",
-      "taskId": "t004",
-      "area": "finance-dk",
-      "startedAt": "2026-03-03T22:35:00Z",
+      "task": "CS2 Dashboard: Tilføj runde-historik (CT/T wins over tid)",
+      "taskId": "t003",
+      "area": "cs2",
+      "startedAt": "2026-03-03T23:35:00Z",
+      "agent": "subagent"
+    },
+    {
+      "task": "Status Page: Tilføj response-time graph per server (last 24h)",
+      "taskId": "t005",
+      "area": "status-page",
+      "startedAt": "2026-03-03T23:35:00Z",
       "agent": "subagent"
     }
   ],
@@ -58,13 +65,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T23:30:01Z",
+      "lastRun": "2026-03-03T23:36:50Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-03T23:30:01Z",
+      "lastRun": "2026-03-03T23:36:50Z",
       "status": "ok"
     },
     {
@@ -76,18 +83,18 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-03T23:30:01Z",
+      "lastRun": "2026-03-03T23:36:50Z",
       "status": "ok"
     }
   ],
   "taskQueue": {
-    "pending": 4,
-    "active": 1,
-    "done": 2
+    "pending": 2,
+    "active": 2,
+    "done": 3
   },
   "recentActivity": [
     {
-      "time": "2026-03-03T23:30:01Z",
+      "time": "2026-03-03T23:36:50Z",
       "event": "✅ System kører normalt"
     }
   ]
