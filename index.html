@@ -91,6 +91,22 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 .act-item:last-child{border-bottom:none;}
 .act-time{font-size:11px;color:var(--text3);white-space:nowrap;padding-top:1px;min-width:52px;}
 .act-event{font-size:13px;flex:1;line-height:1.4;}
+.wolf-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-top:.5px solid var(--sep);}
+.wolf-stat{padding:11px 14px;border-right:.5px solid var(--sep);}
+.wolf-stat:last-child{border-right:none;}
+.wolf-val{font-size:22px;font-weight:700;letter-spacing:-.5px;line-height:1.1;}
+.wolf-lbl{font-size:10px;font-weight:500;color:var(--text2);text-transform:uppercase;letter-spacing:.04em;margin-top:2px;}
+.wolf-sub{font-size:11px;color:var(--text3);margin-top:3px;}
+.wolf-pos{padding:8px 14px;display:flex;gap:6px;align-items:center;border-bottom:.5px solid var(--sep);}
+.wolf-pos:last-child{border-bottom:none;}
+.wolf-ticker{font-size:12px;font-weight:700;width:44px;color:var(--text);}
+.wolf-bar-wrap{flex:1;height:4px;background:var(--bg4);border-radius:100px;overflow:hidden;}
+.wolf-bar{height:100%;border-radius:100px;}
+.wolf-pnl{font-size:12px;font-weight:600;width:64px;text-align:right;}
+.wolf-day{font-size:11px;width:52px;text-align:right;color:var(--text3);}
+.pos-up{color:var(--green);}
+.pos-dn{color:var(--red);}
+.pos-neu{color:var(--text3);}
 </style>
 </head>
 <body>
@@ -145,6 +161,31 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         <div class="q-stat"><div class="q-val" id="q-active" style="color:var(--blue)">—</div><div class="q-lbl">Aktive</div></div>
         <div class="q-stat"><div class="q-val" id="q-done" style="color:var(--green)">—</div><div class="q-lbl">Udført</div></div>
       </div>
+    </div>
+
+    <div class="card span2" id="wolf-card">
+      <div class="ch">
+        <div class="ch-title">🐺 Wolf P&amp;L</div>
+        <div class="ch-badge" id="wolf-badge" style="background:var(--bg3);color:var(--text3)">—</div>
+      </div>
+      <div class="wolf-grid">
+        <div class="wolf-stat">
+          <div class="wolf-val" id="wolf-pnl-val">—</div>
+          <div class="wolf-lbl">Total P&amp;L</div>
+          <div class="wolf-sub" id="wolf-pnl-pct">—</div>
+        </div>
+        <div class="wolf-stat">
+          <div class="wolf-val" id="wolf-day-val">—</div>
+          <div class="wolf-lbl">Dag P&amp;L</div>
+          <div class="wolf-sub" id="wolf-portfolio-val">—</div>
+        </div>
+        <div class="wolf-stat">
+          <div class="wolf-val" id="wolf-positions">—</div>
+          <div class="wolf-lbl">Aktive trades</div>
+          <div class="wolf-sub" id="wolf-cash">—</div>
+        </div>
+      </div>
+      <div id="wolf-pos-list"></div>
     </div>
 
     <div class="card span2">
@@ -235,6 +276,34 @@ function render(d){
   document.getElementById('queue-body').innerHTML=acts.slice(0,5).map(function(t){return'<div class="task-item"><div class="tdot td-pending"></div><div class="task-title">'+esc(t.title)+'<div class="task-meta"><span class="t-area">'+esc(t.area)+'</span></div></div></div>';}).join('')||'<div class="empty">Tomt</div>';
   document.getElementById('srv-body').innerHTML=(d.products||[]).map(function(p){var port=(p.url||'').split(':').pop();return'<div class="srv-item"><div class="sdot s-'+esc(p.status||'down')+'"></div><div class="srv-name"><a href="'+esc(p.url)+'" target="_blank">'+esc(p.name)+'</a></div><div class="srv-port">:'+esc(port)+'</div></div>';}).join('');
   document.getElementById('act-body').innerHTML=(d.recentActivity||[]).length?(d.recentActivity||[]).map(function(a){return'<div class="act-item"><div class="act-time">'+timeAgo(a.time)+'</div><div class="act-event">'+esc(a.event)+'</div></div>';}).join(''):'<div class="empty">Ingen aktivitet</div>';
+  // Wolf P&L
+  var w=d.wolf;
+  if(w&&!w.error){
+    var pnl=w.pnl||0;var pnlPct=w.pnlPct||0;var day=w.dayChangeDKK||0;
+    var pnlColor=pnl>=0?'var(--green)':'var(--red)';
+    var dayColor=day>=0?'var(--green)':'var(--red)';
+    var sign=pnl>=0?'+':'';var dsign=day>=0?'+':'';
+    document.getElementById('wolf-pnl-val').innerHTML='<span style="color:'+pnlColor+'">'+sign+Math.round(pnl)+' kr</span>';
+    document.getElementById('wolf-pnl-pct').innerHTML='<span style="color:'+pnlColor+'">'+sign+pnlPct.toFixed(2)+'%</span>';
+    document.getElementById('wolf-day-val').innerHTML='<span style="color:'+dayColor+'">'+dsign+Math.round(day)+' kr</span>';
+    document.getElementById('wolf-portfolio-val').textContent='Portef. '+(w.totalValue||0).toLocaleString('da-DK',{maximumFractionDigits:0})+' kr';
+    document.getElementById('wolf-positions').textContent=(w.activePositions||0);
+    document.getElementById('wolf-cash').textContent='Cash '+(w.cash||0).toLocaleString('da-DK',{maximumFractionDigits:0})+' kr';
+    var badgeEl=document.getElementById('wolf-badge');
+    badgeEl.textContent=(pnl>=0?'▲ ':'▼ ')+Math.abs(pnlPct).toFixed(2)+'%';
+    badgeEl.style.background=pnl>=0?'rgba(52,199,89,.12)':'rgba(255,59,48,.12)';
+    badgeEl.style.color=pnl>=0?'var(--green)':'var(--red)';
+    var posHtml=(w.positions||[]).map(function(p){
+      var pc=p.pnlPct||0;var dc=p.dayChangePct||0;
+      var pcol=pc>=0?'pos-up':'pos-dn';var dcol=dc>=0?'pos-up':'pos-dn';
+      var barW=Math.min(Math.abs(pc)*10,100)+'%';var barC=pc>=0?'var(--green)':'var(--red)';
+      return'<div class="wolf-pos"><div class="wolf-ticker">'+esc(p.ticker)+'</div><div class="wolf-bar-wrap"><div class="wolf-bar" style="width:'+barW+';background:'+barC+'"></div></div><div class="wolf-pnl '+pcol+'">'+(pc>=0?'+':'')+pc.toFixed(1)+'%</div><div class="wolf-day '+dcol+'">'+(dc>=0?'+':'')+dc.toFixed(1)+'%d</div></div>';
+    }).join('');
+    document.getElementById('wolf-pos-list').innerHTML=posHtml||'<div class="empty">Ingen positioner</div>';
+  } else {
+    document.getElementById('wolf-pnl-val').textContent='N/A';
+    document.getElementById('wolf-pos-list').innerHTML='<div class="empty">'+(w&&w.error?'Fejl: '+esc(w.error):'Ingen data')+'</div>';
+  }
 }
 </script>
 </body>
