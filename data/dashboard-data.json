@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2026-03-05T11:14:58Z",
-  "contextPct": 17,
+  "lastUpdated": "2026-03-05T11:20:01Z",
+  "contextPct": 18,
   "model": "claude-sonnet-4-6",
   "wolf": {
     "totalValue": 10567.29,
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T11:14:58Z",
+      "lastRun": "2026-03-05T11:20:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-05T11:14:58Z",
+      "lastRun": "2026-03-05T11:20:01Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T11:14:58Z",
+      "lastRun": "2026-03-05T11:20:01Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-05T11:14:58Z",
+      "time": "2026-03-05T11:20:01Z",
       "event": "✅ System kører normalt"
     }
   ]
