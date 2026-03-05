@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-03-05T04:20:01Z",
+  "lastUpdated": "2026-03-05T04:30:01Z",
   "contextPct": 16,
   "model": "claude-sonnet-4-6",
   "wolf": {
-    "totalValue": 9764.38,
+    "totalValue": 10567.29,
     "cash": 1722.2,
-    "pnl": -235.62,
-    "pnlPct": -2.36,
-    "dayChangeDKK": -28.15,
+    "pnl": 567.29,
+    "pnlPct": 5.67,
+    "dayChangeDKK": 900.93,
     "activePositions": 3,
     "startingCapital": 10000,
-    "lastUpdated": "2026-03-04T23:23:00.000000",
+    "lastUpdated": "2026-03-05T05:24:00.000000",
     "positions": [
       {
         "ticker": "COIN",
-        "pnlDKK": 16.17,
-        "pnlPct": 0.46,
-        "dayChangePct": -0.35,
-        "currentValue": 3506.22
+        "pnlDKK": 530.13,
+        "pnlPct": 15.19,
+        "dayChangePct": 14.66,
+        "currentValue": 4020.18
       },
       {
         "ticker": "MSTR",
-        "pnlDKK": -56.4,
-        "pnlPct": -3.21,
-        "dayChangePct": -0.35,
-        "currentValue": 1701.86
+        "pnlDKK": 120.5,
+        "pnlPct": 6.85,
+        "dayChangePct": 10.39,
+        "currentValue": 1878.76
       },
       {
         "ticker": "PLTR",
-        "pnlDKK": 52.62,
-        "pnlPct": 1.89,
-        "dayChangePct": -0.35,
-        "currentValue": 2834.1
+        "pnlDKK": 164.67,
+        "pnlPct": 5.92,
+        "dayChangePct": 3.95,
+        "currentValue": 2946.15
       }
     ]
   },
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T04:20:01Z",
+      "lastRun": "2026-03-05T04:30:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-05T04:20:01Z",
+      "lastRun": "2026-03-05T04:30:01Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T04:20:01Z",
+      "lastRun": "2026-03-05T04:30:01Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-05T04:20:01Z",
+      "time": "2026-03-05T04:30:01Z",
       "event": "✅ System kører normalt"
     }
   ]
