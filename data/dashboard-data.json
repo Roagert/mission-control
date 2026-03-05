@@ -1,30 +1,30 @@
 {
-  "lastUpdated": "2026-03-05T10:20:01Z",
+  "lastUpdated": "2026-03-05T10:30:01Z",
   "contextPct": 17,
   "model": "claude-sonnet-4-6",
   "wolf": {
     "totalValue": 10567.29,
-    "cash": 1722.2,
+    "cash": 1183.5,
     "pnl": 567.29,
     "pnlPct": 5.67,
-    "dayChangeDKK": 900.93,
+    "dayChangeDKK": 899.68,
     "activePositions": 3,
     "startingCapital": 10000,
-    "lastUpdated": "2026-03-05T05:24:00.000000",
+    "lastUpdated": "2026-03-05T11:23:00.000000",
     "positions": [
       {
         "ticker": "COIN",
-        "pnlDKK": 530.13,
+        "pnlDKK": 353.42,
         "pnlPct": 15.19,
         "dayChangePct": 14.66,
-        "currentValue": 4020.18
+        "currentValue": 2680.12
       },
       {
         "ticker": "MSTR",
         "pnlDKK": 120.5,
-        "pnlPct": 6.85,
+        "pnlPct": 3.31,
         "dayChangePct": 10.39,
-        "currentValue": 1878.76
+        "currentValue": 3757.52
       },
       {
         "ticker": "PLTR",
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T10:20:01Z",
+      "lastRun": "2026-03-05T10:30:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-05T10:20:01Z",
+      "lastRun": "2026-03-05T10:30:01Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T10:20:01Z",
+      "lastRun": "2026-03-05T10:30:01Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-05T10:20:01Z",
+      "time": "2026-03-05T10:30:01Z",
       "event": "✅ System kører normalt"
     }
   ]
