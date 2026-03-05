@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-05T22:20:01Z",
+  "lastUpdated": "2026-03-05T22:30:01Z",
   "contextPct": 19,
   "model": "claude-sonnet-4-6",
   "wolf": {
@@ -10,7 +10,7 @@
     "dayChangeDKK": 902.1,
     "activePositions": 3,
     "startingCapital": 10000,
-    "lastUpdated": "2026-03-05T17:23:00.000000",
+    "lastUpdated": "2026-03-05T23:23:00.000000",
     "positions": [
       {
         "ticker": "COIN",
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T22:20:01Z",
+      "lastRun": "2026-03-05T22:30:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-05T22:20:01Z",
+      "lastRun": "2026-03-05T22:30:01Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T22:20:01Z",
+      "lastRun": "2026-03-05T22:30:01Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-05T22:20:01Z",
+      "time": "2026-03-05T22:30:01Z",
       "event": "✅ System kører normalt"
     }
   ]
