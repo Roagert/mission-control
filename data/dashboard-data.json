@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-03-05T16:20:01Z",
+  "lastUpdated": "2026-03-05T16:30:01Z",
   "contextPct": 18,
   "model": "claude-sonnet-4-6",
   "wolf": {
-    "totalValue": 10567.29,
+    "totalValue": 10592.47,
     "cash": 1183.5,
-    "pnl": 567.29,
-    "pnlPct": 5.67,
-    "dayChangeDKK": 899.68,
+    "pnl": 592.47,
+    "pnlPct": 5.92,
+    "dayChangeDKK": 902.1,
     "activePositions": 3,
     "startingCapital": 10000,
-    "lastUpdated": "2026-03-05T11:23:00.000000",
+    "lastUpdated": "2026-03-05T17:23:00.000000",
     "positions": [
       {
         "ticker": "COIN",
-        "pnlDKK": 353.42,
-        "pnlPct": 15.19,
+        "pnlDKK": 360.6,
+        "pnlPct": 15.5,
         "dayChangePct": 14.66,
-        "currentValue": 2680.12
+        "currentValue": 2687.3
       },
       {
         "ticker": "MSTR",
-        "pnlDKK": 120.5,
-        "pnlPct": 3.31,
+        "pnlDKK": 130.58,
+        "pnlPct": 3.59,
         "dayChangePct": 10.39,
-        "currentValue": 3757.52
+        "currentValue": 3767.6
       },
       {
         "ticker": "PLTR",
-        "pnlDKK": 164.67,
-        "pnlPct": 5.92,
+        "pnlDKK": 172.59,
+        "pnlPct": 6.21,
         "dayChangePct": 3.95,
-        "currentValue": 2946.15
+        "currentValue": 2954.07
       }
     ]
   },
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T16:20:01Z",
+      "lastRun": "2026-03-05T16:30:01Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-05T16:20:01Z",
+      "lastRun": "2026-03-05T16:30:01Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-05T16:20:01Z",
+      "lastRun": "2026-03-05T16:30:01Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-05T16:20:01Z",
+      "time": "2026-03-05T16:30:01Z",
       "event": "✅ System kører normalt"
     }
   ]
