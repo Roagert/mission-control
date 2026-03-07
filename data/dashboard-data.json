@@ -1,37 +1,37 @@
 {
-  "lastUpdated": "2026-03-07T04:20:01Z",
-  "contextPct": 20,
+  "lastUpdated": "2026-03-07T04:28:52Z",
+  "contextPct": 21,
   "model": "claude-sonnet-4-6",
   "wolf": {
-    "totalValue": 10404.19,
+    "totalValue": 10161.94,
     "cash": 3147.18,
-    "pnl": 404.19,
-    "pnlPct": 4.04,
-    "dayChangeDKK": -209.59,
+    "pnl": 161.94,
+    "pnlPct": 1.62,
+    "dayChangeDKK": -229.89,
     "activePositions": 3,
     "startingCapital": 10000,
-    "lastUpdated": "2026-03-06T23:23:00.000000",
+    "lastUpdated": "2026-03-07T05:23:00.000000",
     "positions": [
       {
         "ticker": "COIN",
-        "pnlDKK": 331.94,
-        "pnlPct": 14.27,
-        "dayChangePct": -1.54,
-        "currentValue": 2658.64
+        "pnlDKK": 221.96,
+        "pnlPct": 9.54,
+        "dayChangePct": -4.14,
+        "currentValue": 2548.66
       },
       {
         "ticker": "MSTR",
-        "pnlDKK": -25.22,
-        "pnlPct": -0.69,
-        "dayChangePct": -4.59,
-        "currentValue": 3611.8
+        "pnlDKK": -186.5,
+        "pnlPct": -5.13,
+        "dayChangePct": -4.47,
+        "currentValue": 3450.52
       },
       {
         "ticker": "PLTR",
-        "pnlDKK": 59.41,
-        "pnlPct": 6.41,
-        "dayChangePct": -0.29,
-        "currentValue": 986.57
+        "pnlDKK": 88.42,
+        "pnlPct": 9.54,
+        "dayChangePct": 2.94,
+        "currentValue": 1015.58
       }
     ]
   },
@@ -83,13 +83,13 @@
     {
       "name": "Watchdog",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-07T04:20:01Z",
+      "lastRun": "2026-03-07T04:28:52Z",
       "status": "ok"
     },
     {
       "name": "Heartbeat",
       "schedule": "*/30 * * * *",
-      "lastRun": "2026-03-07T04:20:01Z",
+      "lastRun": "2026-03-07T04:28:52Z",
       "status": "ok"
     },
     {
@@ -101,7 +101,7 @@
     {
       "name": "Mission Control push",
       "schedule": "*/10 * * * *",
-      "lastRun": "2026-03-07T04:20:01Z",
+      "lastRun": "2026-03-07T04:28:52Z",
       "status": "ok"
     }
   ],
@@ -112,7 +112,7 @@
   },
   "recentActivity": [
     {
-      "time": "2026-03-07T04:20:01Z",
+      "time": "2026-03-07T04:28:52Z",
       "event": "✅ System kører normalt"
     }
   ]
